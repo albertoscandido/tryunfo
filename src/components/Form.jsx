@@ -4,10 +4,6 @@ import Input from './Input';
 import Select from './Select';
 
 export default class Form extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   render() {
     const {
       cardName,
