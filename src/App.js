@@ -7,6 +7,7 @@ class App extends React.Component {
     super();
 
     this.state = {
+      cards: [],
       cardName: '',
       cardDescription: '',
       cardAttr1: '',
@@ -33,12 +34,18 @@ class App extends React.Component {
   }
 
   onSaveButtonClick() {
+    const {
+      cards,
+      isSaveButtonDisabled,
+      ...attributes
+    } = this.state;
     this.setState({
+      cards: [...cards, { ...attributes }],
       cardName: '',
       cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
