@@ -15,19 +15,21 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'raro',
       cardTrunfo: false,
-      isSaveButtonDisabled: false,
+      isSaveButtonDisabled: true,
     };
 
     this.onInputChange = this.onInputChange.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.validateRules = this.validateRules.bind(this);
   }
 
   onInputChange({ target }) {
-    console.log(target);
     const { name, value, type, checked } = target;
-    console.log(name, value, type, checked);
-    if (type === 'checkbox') this.setState({ [name]: checked });
-    else this.setState({ [name]: value });
+    if (type === 'checkbox') {
+      this.setState({ [name]: checked }, () => this.validateRules());
+    } else {
+      this.setState({ [name]: value }, () => this.validateRules());
+    }
   }
 
   onSaveButtonClick() {
@@ -40,8 +42,45 @@ class App extends React.Component {
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
-      isSaveButtonDisabled: false,
+      isSaveButtonDisabled: true,
     });
+  }
+
+  validateRules() {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+    } = this.state;
+
+    const maxPower = 210;
+    const maxAttr = 90;
+    const minAttr = 0;
+    if (!cardName.trim()
+        || !cardDescription.trim()
+        || !cardImage.trim()
+        || !cardRare.trim()
+    ) {
+      this.setState({ isSaveButtonDisabled: true });
+    } else if (
+      Number(cardAttr1) < minAttr
+      || Number(cardAttr1) > maxAttr
+      || Number(cardAttr2) < minAttr
+      || Number(cardAttr2) > maxAttr
+      || Number(cardAttr3) < minAttr
+      || Number(cardAttr3) > maxAttr
+    ) {
+      this.setState({ isSaveButtonDisabled: true });
+    } else if ((Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3)) > maxPower) {
+      this.setState({ isSaveButtonDisabled: true });
+    } else {
+      console.log('3');
+      this.setState({ isSaveButtonDisabled: false });
+    }
   }
 
   render() {

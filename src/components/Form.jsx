@@ -18,6 +18,10 @@ export default class Form extends Component {
       onInputChange,
       onSaveButtonClick,
     } = this.props;
+
+    const maxAttrPower = 90;
+    const minAttrPower = 0;
+
     return (
       <>
         <Input
@@ -37,18 +41,24 @@ export default class Form extends Component {
           testid="attr1-input"
           value={ cardAttr1 }
           onChange={ onInputChange }
+          min={ minAttrPower }
+          max={ maxAttrPower }
         />
         <Input
           type="number"
           testid="attr2-input"
           value={ cardAttr2 }
           onChange={ onInputChange }
+          min={ minAttrPower }
+          max={ maxAttrPower }
         />
         <Input
           type="number"
           testid="attr3-input"
           value={ cardAttr3 }
           onChange={ onInputChange }
+          min={ minAttrPower }
+          max={ maxAttrPower }
         />
         <Input
           type="text"
