@@ -3,24 +3,33 @@ import PropTypes from 'prop-types';
 
 export default class Input extends Component {
   render() {
-    const { type, testid, onChange, ...props } = this.props;
-
-    const name = testid.split('-')[0];
+    const { type, testid, onChange, name, label, ...props } = this.props;
 
     return (
-      <input
-        type={ type }
-        data-testid={ testid }
-        name={ `card${name.charAt(0).toUpperCase() + name.slice(1)}` }
-        onChange={ onChange }
-        { ...props }
-      />
+      <label htmlFor={ name }>
+        { type !== 'checkbox' ? label : null }
+        <input
+          name={ name }
+          type={ type }
+          data-testid={ testid }
+          onChange={ onChange }
+          { ...props }
+        />
+        { type === 'checkbox' ? label : null }
+      </label>
     );
   }
 }
 
 Input.propTypes = {
-  type: PropTypes.string.isRequired,
-  testid: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  type: PropTypes.string,
+  testid: PropTypes.string.isRequired,
+};
+
+Input.defaultProps = {
+  label: '',
+  type: 'text',
 };

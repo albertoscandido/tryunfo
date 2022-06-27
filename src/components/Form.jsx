@@ -18,24 +18,28 @@ export default class Form extends Component {
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
+      ...props
     } = this.props;
 
     const maxAttrPower = 90;
     const minAttrPower = 0;
 
     return (
-      <>
+      <form { ...props }>
         <Input
-          type="text"
           testid="name-input"
           value={ cardName }
           onChange={ onInputChange }
+          name="cardName"
+          label="Nome"
         />
         <Input
           type="textarea"
           testid="description-input"
           value={ cardDescription }
           onChange={ onInputChange }
+          name="cardDescription"
+          label="Descrição"
         />
         <Input
           type="number"
@@ -44,6 +48,8 @@ export default class Form extends Component {
           onChange={ onInputChange }
           min={ minAttrPower }
           max={ maxAttrPower }
+          name="cardAttr1"
+          label="Attr01"
         />
         <Input
           type="number"
@@ -52,6 +58,8 @@ export default class Form extends Component {
           onChange={ onInputChange }
           min={ minAttrPower }
           max={ maxAttrPower }
+          name="cardAttr2"
+          label="Attr02"
         />
         <Input
           type="number"
@@ -60,28 +68,35 @@ export default class Form extends Component {
           onChange={ onInputChange }
           min={ minAttrPower }
           max={ maxAttrPower }
+          name="cardAttr3"
+          label="Attr03"
         />
         <Input
-          type="text"
           testid="image-input"
           value={ cardImage }
           onChange={ onInputChange }
+          name="cardImage"
+          label="Imagem"
         />
         <Select
+          label="Raridade"
           options={ ['normal', 'raro', 'muito raro'] }
           testid="rare-input"
           value={ cardRare }
           onChange={ onInputChange }
+          name="cardRare"
         />
         {
           hasTrunfo ? (
             <p>Você já tem um Super Trunfo em seu baralho</p>
           ) : (
             <Input
+              label="Super Trybe Triunfo"
               type="checkbox"
               testid="trunfo-input"
               checked={ cardTrunfo }
               onChange={ onInputChange }
+              name="cardTrunfo"
             />
           )
         }
@@ -93,7 +108,7 @@ export default class Form extends Component {
         >
           Salvar
         </button>
-      </>
+      </form>
     );
   }
 }

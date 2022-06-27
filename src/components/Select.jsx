@@ -3,31 +3,35 @@ import PropTypes from 'prop-types';
 
 export default class Select extends Component {
   render() {
-    const { options, testid, onChange, value } = this.props;
-    const name = testid.split('-')[0];
+    const { options, testid, onChange, value, name, ...props } = this.props;
+
     return (
-      <select
-        data-testid={ testid }
-        onChange={ onChange }
-        name={ `card${name.charAt(0).toUpperCase() + name.slice(1)}` }
-        value={ value }
-      >
-        {
-          options.map((option) => (
-            <option
-              key={ option }
-              value={ option }
-            >
-              { option }
-            </option>
-          ))
-        }
-      </select>
+      <label htmlFor={ name }>
+        <select
+          data-testid={ testid }
+          onChange={ onChange }
+          value={ value }
+          name={ name }
+          { ...props }
+        >
+          {
+            options.map((option) => (
+              <option
+                key={ option }
+                value={ option }
+              >
+                { option }
+              </option>
+            ))
+          }
+        </select>
+      </label>
     );
   }
 }
 
 Select.propTypes = {
+  name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   testid: PropTypes.string.isRequired,
