@@ -1,14 +1,11 @@
 import React from 'react';
 import Card from './components/Card';
 import './styles.css';
-import Form from './components/Form';
-import Input from './components/Input';
-import Select from './components/Select';
+import Home from './pages/Home';
 
 export default class App extends React.Component {
   constructor() {
     super();
-
     this.state = {
       cards: [],
       cardName: '',
@@ -99,7 +96,6 @@ export default class App extends React.Component {
         || !cardImage.trim()
         || !cardRare.trim()
     ) {
-      console.log('1');
       this.setState({ isSaveButtonDisabled: true });
     } else if (
       Number(cardAttr1) < minAttr
@@ -109,10 +105,8 @@ export default class App extends React.Component {
       || Number(cardAttr3) < minAttr
       || Number(cardAttr3) > maxAttr
     ) {
-      console.log('2');
       this.setState({ isSaveButtonDisabled: true });
     } else if ((Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3)) > maxPower) {
-      console.log('3');
       this.setState({ isSaveButtonDisabled: true });
     } else {
       this.setState({ isSaveButtonDisabled: false });
@@ -216,72 +210,25 @@ export default class App extends React.Component {
       filters,
     } = this.state;
 
-    const {
-      name,
-      rare,
-      trunfo,
-    } = filters;
-
     return (
-      <div>
-        <h1>Tryunfo</h1>
-        <Form
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
-          onInputChange={ this.onInputChange }
-          onSaveButtonClick={ this.onSaveButtonClick }
-          className="create-card-form"
-        />
-        <h2>Pré-visualização</h2>
-        <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-        />
-        <h2>Todas as cartas</h2>
-        Filtros de busca
-        <Input
-          testid="name-filter"
-          name="name"
-          disabled={ trunfo }
-          placeholder="Nome da carta"
-          value={ name }
-          onChange={ this.onInputFilterChange }
-        />
-        <Select
-          testid="rare-filter"
-          name="rare"
-          value={ rare }
-          disabled={ trunfo }
-          placeholder="Raridade"
-          options={ ['todas', 'normal', 'raro', 'muito raro'] }
-          onChange={ this.onInputFilterChange }
-        />
-        <Input
-          type="checkbox"
-          testid="trunfo-filter"
-          checked={ trunfo }
-          onChange={ this.onInputFilterChange }
-          name="trunfo"
-          label="Super Trunfo"
-        />
-        {
-          cards.length === 0 ? null : this.filterCards()
-        }
-      </div>
+      <Home
+        cards={ cards }
+        cardName={ cardName }
+        cardDescription={ cardDescription }
+        cardAttr1={ cardAttr1 }
+        cardAttr2={ cardAttr2 }
+        cardAttr3={ cardAttr3 }
+        cardImage={ cardImage }
+        cardRare={ cardRare }
+        cardTrunfo={ cardTrunfo }
+        hasTrunfo={ hasTrunfo }
+        isSaveButtonDisabled={ isSaveButtonDisabled }
+        filters={ filters }
+        onInputChange={ this.onInputChange }
+        onSaveButtonClick={ this.onSaveButtonClick }
+        onInputFilterChange={ this.onInputFilterChange }
+        filterCards={ this.filterCards }
+      />
     );
   }
 }
