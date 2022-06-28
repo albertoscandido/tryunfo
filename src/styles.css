@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .create-card-form {
   display: flex;
   flex-direction: column;
@@ -6,6 +11,7 @@
 }
 
 .flex-column {
+  align-items: center;
   display: flex;
   flex-direction: column;
 }
@@ -20,9 +26,92 @@
   gap: 2rem;
 }
 
+.gap-3 {
+  gap: 3rem;
+}
+
+
 .card {
+  align-items: center;
+  background-color: aliceblue;
   border: 1px solid gray;
   border-radius: 0.5rem;
   box-shadow: 2px 2px 2px gray;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  height: 28rem;
   padding: 0.5rem;
+  width: 18rem;
+}
+
+.card img {
+  border-radius: 0.5rem;
+  width: 75%;
+}
+
+.card h4 {
+  align-self: flex-start;
+}
+
+.card .trunfo {
+  align-self: flex-end;
+}
+
+.width-min-80 {
+  min-width: 80%;
+}
+
+.label-text {
+  color: black;
+  font-weight: 500;
+  transition: 0.5s;
+  width: 90%;
+}
+
+.label-text input {
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  box-sizing: content-box;
+  font-size: 0.9em;
+  padding: 10px 10px 10px 15px;
+  width: 100%;
+}
+
+.label-select {
+  color: black;
+  font-weight: 500;
+  transition: 0.5s;
+  width: 90%;
+}
+
+.label-select select {
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  box-sizing: content-box;
+  font-size: 0.9em;
+  padding: 10px 10px 10px 15px;
+  width: 100%;
+}
+
+.label-check {
+  color: black;
+  font-weight: 500;
+  transition: 0.5s;
+  width: 100%;
+}
+
+.label-check input {
+  margin: 10px;
+}
+
+.btn {
+  border-radius: 0.5rem;
+  padding: 10px 10px 10px 15px;
+  width: 100%;
+}
+
+.margin-b-20 {
+  margin-bottom: 20px;
 }

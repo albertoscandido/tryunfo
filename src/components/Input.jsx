@@ -6,14 +6,13 @@ export default class Input extends Component {
     const { type, testid, onChange, name, label, ...props } = this.props;
 
     return (
-      <label htmlFor={ name }>
+      <label htmlFor={ name } { ...props }>
         { type !== 'checkbox' ? label : null }
         <input
           name={ name }
           type={ type }
           data-testid={ testid }
           onChange={ onChange }
-          { ...props }
         />
         { type === 'checkbox' ? label : null }
       </label>

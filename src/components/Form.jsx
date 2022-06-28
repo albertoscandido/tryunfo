@@ -32,6 +32,7 @@ export default class Form extends Component {
           onChange={ onInputChange }
           name="cardName"
           label="Nome"
+          className="label-text"
         />
         <Input
           type="textarea"
@@ -40,6 +41,7 @@ export default class Form extends Component {
           onChange={ onInputChange }
           name="cardDescription"
           label="Descrição"
+          className="label-text"
         />
         <Input
           type="number"
@@ -50,6 +52,7 @@ export default class Form extends Component {
           max={ maxAttrPower }
           name="cardAttr1"
           label="Attr01"
+          className="label-text"
         />
         <Input
           type="number"
@@ -60,6 +63,7 @@ export default class Form extends Component {
           max={ maxAttrPower }
           name="cardAttr2"
           label="Attr02"
+          className="label-text"
         />
         <Input
           type="number"
@@ -70,6 +74,7 @@ export default class Form extends Component {
           max={ maxAttrPower }
           name="cardAttr3"
           label="Attr03"
+          className="label-text"
         />
         <Input
           testid="image-input"
@@ -77,6 +82,7 @@ export default class Form extends Component {
           onChange={ onInputChange }
           name="cardImage"
           label="Imagem"
+          className="label-text"
         />
         <Select
           label="Raridade"
@@ -85,6 +91,7 @@ export default class Form extends Component {
           value={ cardRare }
           onChange={ onInputChange }
           name="cardRare"
+          className="label-select"
         />
         {
           hasTrunfo ? (
@@ -97,6 +104,7 @@ export default class Form extends Component {
               checked={ cardTrunfo }
               onChange={ onInputChange }
               name="cardTrunfo"
+              className="label-check"
             />
           )
         }
@@ -105,6 +113,7 @@ export default class Form extends Component {
           data-testid="save-button"
           disabled={ isSaveButtonDisabled }
           onClick={ onSaveButtonClick }
+          className="btn"
         >
           Salvar
         </button>

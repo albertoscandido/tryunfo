@@ -15,14 +15,15 @@ export default class Card extends Component {
     } = this.props;
     return (
       <div className="card">
-        <h2 data-testid="name-card">{ cardName }</h2>
+        <h3 data-testid="name-card">{ cardName }</h3>
         <img data-testid="image-card" src={ cardImage } alt={ cardName } />
         <h4 data-testid="description-card">{ cardDescription }</h4>
         <h4 data-testid="attr1-card">{ `Attr01: ${cardAttr1}` }</h4>
         <h4 data-testid="attr2-card">{ `Attr02: ${cardAttr2}` }</h4>
         <h4 data-testid="attr3-card">{ `Attr03: ${cardAttr3}` }</h4>
         <h4 data-testid="rare-card">{ cardRare }</h4>
-        { cardTrunfo ? (<h4 data-testid="trunfo-card">Super Trunfo</h4>) : null }
+        { cardTrunfo ? (
+          <h3 data-testid="trunfo-card" className="trunfo">Super Trunfo</h3>) : null }
       </div>
     );
   }
