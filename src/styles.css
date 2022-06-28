@@ -4,3 +4,25 @@
   gap: 1rem;
   padding: 1rem 1rem 1rem 0;
 }
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row-around {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.card {
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 2px gray;
+  padding: 0.5rem;
+}

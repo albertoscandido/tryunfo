@@ -14,16 +14,16 @@ export default class Card extends Component {
       cardTrunfo,
     } = this.props;
     return (
-      <>
-        <h1 data-testid="name-card">{ cardName }</h1>
+      <div className="card">
+        <h2 data-testid="name-card">{ cardName }</h2>
         <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        <h1 data-testid="description-card">{ cardDescription }</h1>
-        <h1 data-testid="attr1-card">{ cardAttr1 }</h1>
-        <h1 data-testid="attr2-card">{ cardAttr2 }</h1>
-        <h1 data-testid="attr3-card">{ cardAttr3 }</h1>
-        <h1 data-testid="rare-card">{ cardRare }</h1>
-        { cardTrunfo ? (<h1 data-testid="trunfo-card">Super Trunfo</h1>) : null }
-      </>
+        <h4 data-testid="description-card">{ cardDescription }</h4>
+        <h4 data-testid="attr1-card">{ `Attr01: ${cardAttr1}` }</h4>
+        <h4 data-testid="attr2-card">{ `Attr02: ${cardAttr2}` }</h4>
+        <h4 data-testid="attr3-card">{ `Attr03: ${cardAttr3}` }</h4>
+        <h4 data-testid="rare-card">{ cardRare }</h4>
+        { cardTrunfo ? (<h4 data-testid="trunfo-card">Super Trunfo</h4>) : null }
+      </div>
     );
   }
 }
