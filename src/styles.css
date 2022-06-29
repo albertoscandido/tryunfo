@@ -1,6 +1,39 @@
+:root {
+
+  --primary: #114d4d;
+
+  --secondary: #eff1e3;
+
+  --tertiary: #a6d1bf;
+
+  --quaternary: #36173d;
+}
+
 * {
+  color: var(--secondary);
+  font-size: 1rem;
   margin: 0;
   padding: 0;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+body {
+  background-color: var(--primary);
 }
 
 .create-card-form {
@@ -22,6 +55,14 @@
   justify-content: space-around;
 }
 
+.gap-05 {
+  gap: 0.5rem;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
 .gap-2 {
   gap: 2rem;
 }
@@ -33,29 +74,40 @@
 
 .card {
   align-items: center;
-  background-color: aliceblue;
+  background-color: var(--tertiary);
   border: 1px solid gray;
   border-radius: 0.5rem;
   box-shadow: 2px 2px 2px gray;
+  color: var(--quaternary);
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
   height: 28rem;
+  justify-content: space-around;
   padding: 0.5rem;
   width: 18rem;
 }
 
 .card img {
   border-radius: 0.5rem;
-  width: 75%;
+  width: 70%;
 }
 
 .card h4 {
   align-self: flex-start;
+  color: var(--quaternary);
+  display: inline;
+}
+
+.card span {
+  color: var(--quaternary);
 }
 
 .card .trunfo {
   align-self: flex-end;
+  background-color: var(--secondary);
+  border-radius: 0.5rem;
+  color: var(--quaternary);
+  padding: 2px;
 }
 
 .width-min-80 {
@@ -63,7 +115,6 @@
 }
 
 .label-text {
-  color: black;
   font-weight: 500;
   transition: 0.5s;
   width: 90%;
@@ -73,45 +124,57 @@
   border: 1px solid gray;
   border-radius: 0.5rem;
   box-sizing: content-box;
-  font-size: 0.9em;
-  padding: 10px 10px 10px 15px;
+  color: black;
+  font-size: 1rem;
+  padding: 8px 8px 8px 12px;
   width: 100%;
 }
 
 .label-select {
-  color: black;
   font-weight: 500;
   transition: 0.5s;
   width: 90%;
 }
 
 .label-select select {
-  background-color: transparent;
   border: 1px solid gray;
   border-radius: 0.5rem;
   box-sizing: content-box;
+  color: black;
   font-size: 0.9em;
   padding: 10px 10px 10px 15px;
   width: 100%;
 }
 
+.label-select select option {
+  color: var(--primary);
+}
+
 .label-check {
-  color: black;
   font-weight: 500;
   transition: 0.5s;
   width: 100%;
 }
 
 .label-check input {
+  color: black;
   margin: 10px;
 }
 
 .btn {
   border-radius: 0.5rem;
+  color: var(--primary);
   padding: 10px 10px 10px 15px;
   width: 100%;
 }
 
 .margin-b-20 {
   margin-bottom: 20px;
+}
+
+.card-title {
+  background-color: var(--secondary);
+  border-radius: 0.5rem;
+  color: var(--quaternary);
+  padding: 2px;
 }

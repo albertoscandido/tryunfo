@@ -15,12 +15,35 @@ export default class Card extends Component {
     } = this.props;
     return (
       <div className="card">
-        <h3 data-testid="name-card">{ cardName }</h3>
+        <h3 data-testid="name-card" className="card-title">{ cardName }</h3>
         <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        <h4 data-testid="description-card">{ cardDescription }</h4>
-        <h4 data-testid="attr1-card">{ `Attr01: ${cardAttr1}` }</h4>
-        <h4 data-testid="attr2-card">{ `Attr02: ${cardAttr2}` }</h4>
-        <h4 data-testid="attr3-card">{ `Attr03: ${cardAttr3}` }</h4>
+        { cardDescription ? (
+          <span>
+            Descrição:
+            {' '}
+            <h4 data-testid="description-card">{ cardDescription }</h4>
+          </span>)
+          : null }
+        <div className="flex-row-around gap-05">
+          { cardAttr1 ? (
+            <span>
+              Attr01:
+              {' '}
+              <h4 data-testid="attr1-card">{cardAttr1}</h4>
+            </span>) : null }
+          { cardAttr2 ? (
+            <span>
+              Attr02:
+              {' '}
+              <h4 data-testid="attr2-card">{cardAttr2}</h4>
+            </span>) : null }
+          { cardAttr3 ? (
+            <span>
+              Attr03:
+              {' '}
+              <h4 data-testid="attr3-card">{cardAttr3}</h4>
+            </span>) : null }
+        </div>
         <h4 data-testid="rare-card">{ cardRare }</h4>
         { cardTrunfo ? (
           <h3 data-testid="trunfo-card" className="trunfo">Super Trunfo</h3>) : null }
