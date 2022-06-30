@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Form from '../components/Form';
 import Card from '../components/Card';
-import Input from '../components/Input';
-import Select from '../components/Select';
+import FormFilters from '../components/FormFilters';
 
 export default class Home extends Component {
   render() {
@@ -36,7 +35,7 @@ export default class Home extends Component {
       <div className="flex-column gap-3">
         <h1 className="margin-b-20">Tryunfo</h1>
         <section className="flex-row-around width-100">
-          <div className="flex-row-around gap-3">
+          <div className="flex-row-around gap-3 add-card-pre-vis">
             <div>
               <h2 className="margin-b-20">Adicionar Carta</h2>
               <Form
@@ -69,39 +68,16 @@ export default class Home extends Component {
               />
             </div>
           </div>
-          <div className="flex-column gap-3">
-            <h2 className="margin-b-20">Todas as cartas</h2>
+          <div className="flex-column gap-1">
+            <h2>Todas as cartas</h2>
             <div className="all-cards-div">
               <h4>Filtros de busca</h4>
-              <Input
-                testid="name-filter"
-                name="name"
-                disabled={ trunfo }
-                placeholder="Nome da carta"
-                value={ name }
-                onChange={ onInputFilterChange }
-                className="label-text"
-                label="Nome"
-              />
-              <Select
-                testid="rare-filter"
-                name="rare"
-                value={ rare }
-                disabled={ trunfo }
-                placeholder="Raridade"
-                options={ ['todas', 'normal', 'raro', 'muito raro'] }
-                onChange={ onInputFilterChange }
-                label="Raridade"
-                className="label-select"
-              />
-              <Input
-                type="checkbox"
-                testid="trunfo-filter"
-                checked={ trunfo }
-                onChange={ onInputFilterChange }
-                name="trunfo"
-                label="Super Trunfo"
-                className="label-check"
+              <FormFilters
+                rare={ rare }
+                name={ name }
+                trunfo={ trunfo }
+                onInputFilterChange={ onInputFilterChange }
+                className="filters"
               />
             </div>
             <div className="all-cards">

@@ -2,12 +2,16 @@ import React from 'react';
 import Card from './components/Card';
 import './styles.css';
 import Home from './pages/Home';
+import defalt from './default.json';
 
 export default class App extends React.Component {
   constructor() {
     super();
+
+    const filteredDefault = defalt.slice(1);
+
     this.state = {
-      cards: [],
+      cards: [...filteredDefault],
       cardName: '',
       cardDescription: '',
       cardAttr1: '',
@@ -72,7 +76,7 @@ export default class App extends React.Component {
       cardAttr3: '0',
       cardImage: '',
       cardRare: 'normal',
-      cardTrunfo: true,
+      cardTrunfo: false,
       isSaveButtonDisabled: true,
     });
   }

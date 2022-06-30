@@ -1,0 +1,52 @@
+[
+  {
+    "cardName": "",
+    "cardDescription": "",
+    "cardAttr1": "",
+    "cardAttr2": "",
+    "cardAttr3": "",
+    "cardImage": "",
+    "cardRare": "",
+    "cardTrunfo": false
+  },
+  {
+    "cardName": "Normal Luff",
+    "cardDescription": "Capitão dos Mugiwaras",
+    "cardAttr1": "50",
+    "cardAttr2": "50",
+    "cardAttr3": "50",
+    "cardRare": "normal",
+    "cardTrunfo": false,
+    "cardImage": "https://criticalhits.com.br/wp-content/uploads/2019/09/one-piece-sumo-wano-luffy.jpg"
+  },
+  {
+    "cardName": "Roronoa Zoro",
+    "cardDescription": "Mugiwara espadachim - Caçador de Piratas",
+    "cardAttr1": "70",
+    "cardAttr2": "50",
+    "cardAttr3": "80",
+    "cardImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcgN5Ok7Kuy2poENJfexNIeaEUHjkQbw6qvQ&usqp=CAU",
+    "cardRare": "raro",
+    "cardTrunfo": false
+  },
+  {
+    "cardName": "Nico Robin",
+    "cardDescription": "Arqueóloga dos mugiwaras - Hana Hana no Mi (flor)",
+    "cardAttr1": "90",
+    "cardAttr2": "50",
+    "cardAttr3": "50",
+    "cardImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgnZwnbriBszc414SUqEqsh6xiKKx3c_D84g&usqp=CAU",
+    "cardRare": "raro",
+    "cardTrunfo": false
+  },
+  {
+    "cardName": "Luffy Gear 5",
+    "cardDescription": "Nika",
+    "cardAttr1": "90",
+    "cardAttr2": "60",
+    "cardAttr3": "60",
+    "cardImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmCaZl7xd0Qbx-h11MjzPSK7ZY6ym1242saA&usqp=CAU",
+    "cardRare": "muito raro",
+    "cardTrunfo": true
+  }
+]

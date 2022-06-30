@@ -7,6 +7,8 @@
   --tertiary: #a6d1bf;
 
   --quaternary: #36173d;
+
+  --quinary: #156464;
 }
 
 * {
@@ -50,6 +52,7 @@ body {
 }
 
 .flex-row-around {
+  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -92,7 +95,7 @@ body {
   width: 70%;
 }
 
-.card h4 {
+.card h5 {
   align-self: flex-start;
   color: var(--quaternary);
   display: inline;
@@ -187,6 +190,7 @@ body {
   background-color: var(--tertiary);
   border-radius: 0.5rem;
   min-height: 20%;
+  padding: 4px;
   width: 80%;
 }
 
@@ -201,4 +205,38 @@ body {
   display: flex;
   flex-flow: row wrap;
   gap: 1rem;
+  max-width: 700px;
+}
+
+.add-card-pre-vis {
+  background-color: var(--quinary);
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+
+.normal {
+  background-color: brown;
+  border-radius: 30%;
+  color: white;
+  padding: 5px;
+}
+
+.raro {
+  background-color: gray;
+  border-radius: 30%;
+  color: black;
+  padding: 5px;
+}
+
+.muito {
+  background-color: yellow;
+  border-radius: 30%;
+  color: black;
+  padding: 5px;
+}
+
+.filters {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5rem;
 }
