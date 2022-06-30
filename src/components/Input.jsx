@@ -3,18 +3,41 @@ import PropTypes from 'prop-types';
 
 export default class Input extends Component {
   render() {
-    const { type, testid, onChange, name, label, ...props } = this.props;
+    const {
+      type,
+      testid,
+      value,
+      onChange,
+      name,
+      label,
+      disabled,
+      checked,
+      ...props
+    } = this.props;
 
-    return (
+    return type === 'checkbox' ? (
       <label htmlFor={ name } { ...props }>
-        { type !== 'checkbox' ? label : null }
         <input
           name={ name }
           type={ type }
           data-testid={ testid }
           onChange={ onChange }
+          disabled={ disabled }
+          checked={ checked }
         />
-        { type === 'checkbox' ? label : null }
+        { label }
+      </label>
+    ) : (
+      <label htmlFor={ name } { ...props }>
+        { label }
+        <input
+          value={ value }
+          name={ name }
+          type={ type }
+          data-testid={ testid }
+          onChange={ onChange }
+          disabled={ disabled }
+        />
       </label>
     );
   }
@@ -26,9 +49,15 @@ Input.propTypes = {
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string,
   testid: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  disabled: PropTypes.bool,
+  checked: PropTypes.bool,
 };
 
 Input.defaultProps = {
   label: '',
   type: 'text',
+  disabled: false,
+  checked: false,
+  value: '',
 };

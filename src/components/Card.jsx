@@ -17,13 +17,13 @@ export default class Card extends Component {
       <div className="card">
         <h3 data-testid="name-card" className="card-title">{ cardName }</h3>
         <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        { cardDescription ? (
-          <span>
-            Descrição:
-            {' '}
-            <h4 data-testid="description-card">{ cardDescription }</h4>
-          </span>)
-          : null }
+        <div className="card-description">
+          <h4
+            data-testid="description-card"
+          >
+            { cardDescription }
+          </h4>
+        </div>
         <div className="flex-row-around gap-05">
           { cardAttr1 ? (
             <span>

@@ -3,7 +3,16 @@ import PropTypes from 'prop-types';
 
 export default class Select extends Component {
   render() {
-    const { options, testid, onChange, value, name, label, ...props } = this.props;
+    const {
+      options,
+      testid,
+      onChange,
+      value,
+      name,
+      label,
+      disabled,
+      ...props
+    } = this.props;
 
     return (
       <label htmlFor={ name } { ...props }>
@@ -13,6 +22,7 @@ export default class Select extends Component {
           onChange={ onChange }
           value={ value }
           name={ name }
+          disabled={ disabled }
         >
           {
             options.map((option) => (
@@ -37,8 +47,10 @@ Select.propTypes = {
   testid: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   label: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 Select.defaultProps = {
   label: '',
+  disabled: false,
 };

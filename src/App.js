@@ -72,7 +72,7 @@ export default class App extends React.Component {
       cardAttr3: '0',
       cardImage: '',
       cardRare: 'normal',
-      cardTrunfo: false,
+      cardTrunfo: true,
       isSaveButtonDisabled: true,
     });
   }
@@ -134,16 +134,17 @@ export default class App extends React.Component {
     return cards.map((card, i) => {
       if (card.cardTrunfo) {
         return (
-          <>
+          <div className="flex-column gap-05">
             <Card { ...card } key={ i } />
             <button
               type="button"
               data-testid="delete-button"
+              className="btn"
               onClick={ () => this.deleteCard(i) }
             >
               Excluir
             </button>
-          </>
+          </div>
         );
       }
       return null;
@@ -167,29 +168,31 @@ export default class App extends React.Component {
     return cards.map((card, i) => {
       if (rare !== 'todas') {
         return (card.cardName.includes(name) && card.cardRare === rare) ? (
-          <>
+          <div className="flex-column gap-05">
             <Card { ...card } key={ i } />
             <button
               type="button"
               data-testid="delete-button"
+              className="btn"
               onClick={ () => this.deleteCard(i) }
             >
               Excluir
             </button>
-          </>
+          </div>
         ) : null;
       }
       return card.cardName.includes(name) ? (
-        <>
+        <div className="flex-column gap-05">
           <Card { ...card } key={ i } />
           <button
             type="button"
             data-testid="delete-button"
+            className="btn"
             onClick={ () => this.deleteCard(i) }
           >
             Excluir
           </button>
-        </>
+        </div>
       ) : null;
     });
   }
