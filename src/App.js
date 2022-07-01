@@ -1,8 +1,12 @@
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from './components/Card';
 import './styles.css';
 import Home from './pages/Home';
 import defalt from './default.json';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default class App extends React.Component {
   constructor() {
@@ -21,7 +25,7 @@ export default class App extends React.Component {
       cardRare: 'raro',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
-      hasTrunfo: false,
+      hasTrunfo: true,
       filters: {
         name: '',
         rare: 'todas',
@@ -35,7 +39,6 @@ export default class App extends React.Component {
     this.deleteCard = this.deleteCard.bind(this);
     this.onInputFilterChange = this.onInputFilterChange.bind(this);
     this.filterCards = this.filterCards.bind(this);
-    this.filterTrunfo = this.filterTrunfo.bind(this);
   }
 
   onInputChange({ target }) {
@@ -132,29 +135,6 @@ export default class App extends React.Component {
     }
   }
 
-  filterTrunfo(cards) {
-    const { hasTrunfo } = this.state;
-    if (!hasTrunfo) return null;
-    return cards.map((card, i) => {
-      if (card.cardTrunfo) {
-        return (
-          <div className="flex-column gap-05">
-            <Card { ...card } key={ i } />
-            <button
-              type="button"
-              data-testid="delete-button"
-              className="btn"
-              onClick={ () => this.deleteCard(i) }
-            >
-              Excluir
-            </button>
-          </div>
-        );
-      }
-      return null;
-    });
-  }
-
   filterCards() {
     const {
       cards,
@@ -165,40 +145,40 @@ export default class App extends React.Component {
       },
     } = this.state;
 
+    let cardsArr = cards;
+
     if (trunfo) {
-      return this.filterTrunfo(cards);
+      cardsArr = [cards.find(({ cardTrunfo }) => cardTrunfo)];
+    } else {
+      cardsArr = cards.filter(({ cardRare }) => (rare === 'todas' ? true : (rare === cardRare)));
+      cardsArr = cardsArr.filter(({ cardName }) => cardName.toLowerCase().includes(name.toLowerCase()));
     }
 
-    return cards.map((card, i) => {
-      if (rare !== 'todas') {
-        return (card.cardName.includes(name) && card.cardRare === rare) ? (
-          <div className="flex-column gap-05">
-            <Card { ...card } key={ i } />
-            <button
-              type="button"
-              data-testid="delete-button"
-              className="btn"
-              onClick={ () => this.deleteCard(i) }
-            >
-              Excluir
-            </button>
-          </div>
-        ) : null;
-      }
-      return card.cardName.includes(name) ? (
-        <div className="flex-column gap-05">
-          <Card { ...card } key={ i } />
-          <button
-            type="button"
-            data-testid="delete-button"
-            className="btn"
-            onClick={ () => this.deleteCard(i) }
-          >
-            Excluir
-          </button>
-        </div>
-      ) : null;
-    });
+    return (
+      <Swiper
+        spaceBetween={ 50 }
+        slidesPerView={ cardsArr.length > 1 ? 2 : 1 }
+        pagination={ { clickable: true } }
+      >
+        {
+          cardsArr.map((card, i) => (
+            <SwiperSlide key={ card.cardName }>
+              <div className="flex-column gap-05 card-back">
+                <Card { ...card } key={ i } />
+                <button
+                  type="button"
+                  data-testid="delete-button"
+                  className="btn w-80"
+                  onClick={ () => this.deleteCard(i) }
+                >
+                  Excluir
+                </button>
+              </div>
+            </SwiperSlide>
+          ))
+        }
+      </Swiper>
+    );
   }
 
   render() {

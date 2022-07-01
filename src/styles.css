@@ -4,7 +4,7 @@
 
   --secondary: #eff1e3;
 
-  --tertiary: #a6d1bf;
+  --tertiary: #72a790;
 
   --quaternary: #36173d;
 
@@ -13,25 +13,26 @@
 
 * {
   color: var(--secondary);
+  font-family: Arima , sans-serif , cursive;
   font-size: 1rem;
   margin: 0;
   padding: 0;
 }
 
 h4 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 body {
@@ -74,25 +75,35 @@ body {
   gap: 3rem;
 }
 
-
 .card {
   align-items: center;
-  background-color: white;
-  border: 1px solid gray;
+  background-blend-mode: overlay;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlnPyfiIUCMJf_MaWiEurSg0iDVnur0xcNfw&usqp=CAU');
+  background-size: cover;
+  border: 1px solid var(--primary);
   border-radius: 0.5rem;
-  box-shadow: 2px 2px 2px gray;
+  box-shadow: 1px 1px 1px gray;
   color: var(--quaternary);
   display: flex;
   flex-direction: column;
-  height: 28rem;
+  height: 27rem;
   justify-content: space-around;
+  outline: 2px solid black;
+  outline-offset: -4px;
   padding: 0.5rem;
   width: 18rem;
 }
 
+.card-back {
+  background-color: var(--quaternary);
+  border-radius: 0.3rem;
+  padding: 5px;
+}
+
 .card img {
   border-radius: 0.5rem;
-  width: 70%;
+  max-width: 95%;
 }
 
 .card h5 {
@@ -133,7 +144,7 @@ body {
   box-sizing: content-box;
   color: black;
   font-size: 1rem;
-  padding: 8px 8px 8px 12px;
+  padding: 4px 4px 4px 12px;
   width: 100%;
 }
 
@@ -149,7 +160,7 @@ body {
   box-sizing: content-box;
   color: black;
   font-size: 0.9em;
-  padding: 10px 10px 10px 15px;
+  padding: 6px 6px 6px 12px;
   width: 100%;
 }
 
@@ -172,7 +183,14 @@ body {
   border-radius: 0.5rem;
   color: var(--primary);
   padding: 10px 10px 10px 15px;
+}
+
+.w-100 {
   width: 100%;
+}
+
+.w-80 {
+  width: 80%;
 }
 
 .margin-b-20 {
@@ -180,18 +198,34 @@ body {
 }
 
 .card-title {
+  align-items: center;
   background-color: var(--tertiary);
-  border-radius: 0.5rem;
-  color: var(--quaternary);
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
   padding: 2px;
+  width: 95%;
+}
+
+.card-title h4 {
+  color: var(--quaternary);
 }
 
 .card-description {
-  background-color: var(--tertiary);
-  border-radius: 0.5rem;
+  align-items: center;
+  background-color: #97c5b1;
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
   min-height: 20%;
-  padding: 4px;
-  width: 80%;
+  padding: 2px;
+  width: 95%;
+}
+
+.card-description h5 {
+  align-self: center;
+  font-weight: 500;
+  justify-self: center;
 }
 
 .all-cards-div {
@@ -202,16 +236,31 @@ body {
 }
 
 .all-cards {
+  background-color: var(--quaternary);
+  border-radius: 0.5rem;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row;
   gap: 1rem;
   max-width: 700px;
+  padding: 8px;
 }
 
 .add-card-pre-vis {
   background-color: var(--quinary);
   border-radius: 0.5rem;
   padding: 2rem;
+}
+
+.add-card-pre-vis h2 {
+  color: #e0c019;
+}
+
+.exhibition-cards h2 {
+  background-color: var(--quinary);
+  border-radius: 0.3rem;
+  color: #e0c019;
+  font-size: 1.3rem;
+  padding: 4px;
 }
 
 .normal {
@@ -229,7 +278,7 @@ body {
 }
 
 .muito {
-  background-color: yellow;
+  background-color: rgb(223, 223, 90);
   border-radius: 30%;
   color: black;
   padding: 5px;
@@ -239,4 +288,8 @@ body {
   display: flex;
   flex-flow: row wrap;
   gap: 0.5rem;
+}
+
+.p-20 {
+  padding: 20px;
 }

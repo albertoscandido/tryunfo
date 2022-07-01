@@ -32,8 +32,8 @@ export default class Home extends Component {
     } = filters;
 
     return (
-      <div className="flex-column gap-3">
-        <h1 className="margin-b-20">Tryunfo</h1>
+      <div className="flex-column gap-1">
+        <h1>Tryunfo</h1>
         <section className="flex-row-around width-100">
           <div className="flex-row-around gap-3 add-card-pre-vis">
             <div>
@@ -68,7 +68,7 @@ export default class Home extends Component {
               />
             </div>
           </div>
-          <div className="flex-column gap-1">
+          <div className="flex-column gap-1 p-10 exhibition-cards">
             <h2>Todas as cartas</h2>
             <div className="all-cards-div">
               <h4>Filtros de busca</h4>
@@ -80,6 +80,11 @@ export default class Home extends Component {
                 className="filters"
               />
             </div>
+            <h2>
+              { '< ' }
+              Arraste para o lado para ver todo o seu deck de cartas
+              { ' >'}
+            </h2>
             <div className="all-cards">
               {
                 cards.length === 0 ? null : filterCards()

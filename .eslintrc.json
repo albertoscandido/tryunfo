@@ -13,5 +13,15 @@
     },
     "plugins": [
         "react"
+    ],
+    "overrides": [
+        {
+            "files": ["*.jsx", "*.js"],
+            "rules": {
+                "max-len": "off",
+                "max-lines": "off",
+                "import/no-unresolved": "off"
+            }
+        }
     ]
 }

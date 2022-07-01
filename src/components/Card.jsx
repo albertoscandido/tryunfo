@@ -15,7 +15,13 @@ export default class Card extends Component {
     } = this.props;
     return (
       <div className="card">
-        <h4 data-testid="name-card" className="card-title">{ cardName }</h4>
+        {
+          cardName ? (
+            <div className="card-title">
+              <h4 data-testid="name-card">{ cardName }</h4>
+            </div>
+          ) : null
+        }
         <img data-testid="image-card" src={ cardImage } alt={ cardName } />
         { cardDescription ? (
           <div className="card-description">
